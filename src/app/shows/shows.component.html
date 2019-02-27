@@ -1,0 +1,11 @@
+<div  *ngFor="let show of showsResult" class="row" style="padding: 10px">
+	
+	<div (click)="showDetail(show?.show?.id)" >
+	
+	<img [src]="show?.show?.image?.original" alt="show image" style="width: 90px; height: 90px; border-radius: 40%">
+	<label style="margin-left: 20px">Name: {{show?.show?.name}}</label>
+	<label style="margin-left: 20px">Language: {{show?.show?.language}}</label>	
+	
+	</div>
+	
+</div>
