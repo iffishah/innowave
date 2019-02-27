@@ -36,8 +36,8 @@ export class ShowsComponent implements OnInit {
 
 
 showDetail(showId: any){
-	// console.log("Show id :",showId);
-	this._router.navigate(['/show'],{queryParams: {id:showId}})
+	
+	this._router.navigate(['home/show'],{queryParams: {id:showId}})
 }
 
 }

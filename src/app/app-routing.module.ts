@@ -14,13 +14,14 @@ const routes: Routes = [
     children :[
     {path:'shows',component:ShowsComponent},
     {path:'contact',component:ContactComponent},
+     {path: 'show', component: ShowDetailComponent},
+
     ]
 	},
 
 	    {path:'contact',component:ContactComponent},
 
 	
-    {path: 'show', component: ShowDetailComponent},
 
 
 ];
