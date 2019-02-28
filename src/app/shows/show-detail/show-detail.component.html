@@ -1,9 +1,8 @@
 <div  class="row" style="padding: 10px">
-	<div >
-		<img [src]="show?.image?.original" alt="show image" style="width: 90px; height: 90px; border-radius: 40%">
-	<label style="margin-left: 20px">{{show?.name}}</label>
-	<label style="margin-left: 20px">{{show?.language}}</label><br><br>
-	<label style="margin-left: 20px">{{show?.summary}}</label>
+	<div>
+		<img [src]="_show?.image?.original" alt="{{_show?.name}}" style="width: 90px; height: 90px; border-radius: 40%">
+		<label style="margin-left: 20px">{{_show?.name}}</label>
+		<label style="margin-left: 20px">{{_show?.language}}</label><br><br>
+		<label style="margin-left: 20px">{{_show?.summary}}</label>
 	</div>
-	
 </div>

@@ -11,13 +11,7 @@ import {Router} from '@angular/router'
 export class TopNavBarComponent implements OnInit {
 
   constructor(private _router:Router) { }
-
-  ngOnInit() {
-  }
-
-  logout(){
-
-  this._router.navigate(['/login']);
-  }
+  ngOnInit() { }
+  logout(){ this._router.navigate(['/login']); }
 
 }

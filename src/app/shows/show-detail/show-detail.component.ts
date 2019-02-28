@@ -7,41 +7,22 @@ import {ShowslistService} from '../../services/showslist.service'
   templateUrl: './show-detail.component.html',
   styleUrls: ['./show-detail.component.scss']
 })
+
 export class ShowDetailComponent implements OnInit {
-  showId;
-  private show; 
-  constructor(private _route:ActivatedRoute, private _showService: ShowslistService) { }
+	public showId;
+	private _show; 
+	constructor(private _route:ActivatedRoute, private _showService: ShowslistService) { }
 
-  ngOnInit() {
+	ngOnInit() {
+		this.showId = this._route.snapshot.queryParamMap.get('id')
+		this.getShowDetail();
+	}
 
-    this.showId = this._route.snapshot.queryParamMap.get('id')
-    console.log("show id: ",this.showId)
-   this.getShowDetail();
-
-
-  }
-
-
-  getShowDetail(){
-
-   this._showService.getShowDetail(this.showId)
-   .subscribe((res)=>{
-     this.show= res;
-
-
-     console.log("show Detail data: ", this.show);
-     
-
-
-
-   }, (err)=>{
-
-     console.log("show Detail Error occured!");
-   })
-  }
-
-
-
-
+	getShowDetail(){
+		this._showService.getShowDetail(this.showId).subscribe(
+			(res)=>{this._show= res;}, 
+			(err)=>{console.log("show Detail Error occured!");}
+		)
+	}
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ShowslistService} from '../services/showslist.service'
+import { ShowslistService } from '../services/showslist.service'
 import { ActivatedRoute,Router } from '@angular/router';
 
 @Component({
@@ -7,37 +7,21 @@ import { ActivatedRoute,Router } from '@angular/router';
   templateUrl: './shows.component.html',
   styleUrls: ['./shows.component.scss']
 })
+
 export class ShowsComponent implements OnInit {
 
+	public showsResult: any;
+	constructor(private _showsListService:ShowslistService,private _router: Router) { }
 
-  
-  public showsResult: any[];
-  constructor(private _showsListService:ShowslistService,private _router: Router) { }
+	ngOnInit() { this.getAllShows(); }
 
-  ngOnInit() {  
-   this.getAllShows();
-  }
+	getAllShows(){
+		this._showsListService.getShowsList().subscribe(
+			(res)=>{this.showsResult = res;}, 
+			(err)=>{console.log("Error occured: ", err);}
+		)
+	}
 
-
-  getAllShows(){
-
-  this._showsListService.getShowsList()
-  .subscribe((res)=>{
-
-     this.showsResult = res;
-     
-   console.log("shows list data", this.showsResult)
-  }, (err)=>{
-
-     console.log("Error occured: ", err);
-
-  })
-  }
-
-
-showDetail(showId: any){
-	
-	this._router.navigate(['home/show'],{queryParams: {id:showId}})
-}
+	showDetail(showId: number){ this._router.navigate(['/home/show'],{queryParams: {id:showId}}) }
 
 }
